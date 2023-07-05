@@ -55,4 +55,11 @@ public class PlayerInventory : MonoBehaviour {
         item.image = obj.GetComponentInChildren<Image>();
         item.image.sprite = item.item.sprite;
     }
+
+    public InventoryItem GetItem(Item item) {
+        foreach (InventoryItem i in items) {
+            if (i.item.Equals(item)) return i;
+        }
+        return null;
+    }
 }

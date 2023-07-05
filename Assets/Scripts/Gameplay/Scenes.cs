@@ -34,4 +34,8 @@ public class Scenes : MonoBehaviour {
         else
             operation = SceneManager.LoadSceneAsync(name);
     }
+
+    public static void Reload() {
+        Load(index: SceneManager.GetActiveScene().buildIndex);
+    }
 }

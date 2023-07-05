@@ -10,6 +10,6 @@ public class Planet : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (unlocked && other.gameObject.CompareTag("Player"))
-            Scenes.Load(gameObject.name);
+            Scenes.Load(name: gameObject.name);
     }
 }

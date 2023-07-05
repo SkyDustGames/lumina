@@ -7,6 +7,7 @@ public class Rocket : MonoBehaviour {
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
+        GetComponentInChildren<PointingArrow>().target = GameObject.Find(PlayerPrefs.GetString("NextLevel", "Lumina")).transform;
     }
 
     private void Update() {
