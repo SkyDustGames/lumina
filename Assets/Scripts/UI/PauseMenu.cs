@@ -28,6 +28,6 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void Quit() {
-        Scenes.Load(name: "MainMenu");
+        Scenes.Load(name: "Menus");
     }
 }
