@@ -9,6 +9,7 @@ public class Scenes : MonoBehaviour {
     private static Scenes instance;
 
     private void Awake() {
+        transform.SetParent(null, false);
         if (instance != null) {
             Destroy(gameObject);
             return;
