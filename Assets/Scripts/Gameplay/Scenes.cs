@@ -19,12 +19,13 @@ public class Scenes : MonoBehaviour {
 
         panel.alpha = 1;
         SceneManager.sceneLoaded += (scene, mode) => {
+            Time.timeScale = 1f;
             panel.DOFade(0f, .5f);
         };
     }
 
     public async static void Load(string name = null, int index = -1) {
-        instance.panel.DOFade(1f, .5f);
+        instance.panel.DOFade(1f, .5f).SetUpdate(true);
         await Task.Delay(500);
 
         AsyncOperation operation;
