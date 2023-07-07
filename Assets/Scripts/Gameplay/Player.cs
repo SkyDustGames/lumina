@@ -3,10 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     
     [SerializeField] float speed;
-    [SerializeField] float jumpForce;
-    [SerializeField] int maxJumpCount;
-    int jumps;
-    float movement;
+    Vector2 movement;
     Rigidbody2D rb;
 
     private void Awake() {
@@ -14,23 +11,10 @@ public class Player : MonoBehaviour {
     }
 
     private void Update() {
-        movement = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetButtonDown("Jump") && jumps < maxJumpCount) {
-            jumps++;
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-        }
+        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
     private void FixedUpdate() {
-        rb.velocity = new Vector2(speed * movement * Time.deltaTime, rb.velocity.y);
-    }
-
-    private void OnCollisionExit2D(Collision2D other) {
-        jumps = maxJumpCount / 2;
-    }
-
-    private void OnCollisionEnter2D(Collision2D other) {
-        jumps = 0;
+        rb.velocity = movement * speed * Time.deltaTime;
     }
 }

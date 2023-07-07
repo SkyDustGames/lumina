@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e98c6c50fb12d56cd8bb52f47e656aaf, type: 3}
-  m_Name: Test Item
+  m_Name: Square
   m_EditorClassIdentifier: 
-  name: Test
-  sprite: {fileID: 21300000, guid: 2be5563a730da824aae4dff22d7e3ca1, type: 3}
+  name: Square
+  sprite: {fileID: 21300000, guid: a68a3a1a696111544b6ba83feadc695f, type: 3}

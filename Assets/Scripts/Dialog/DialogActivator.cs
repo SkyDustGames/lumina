@@ -3,8 +3,9 @@ using DG.Tweening;
 
 public class DialogActivator : MonoBehaviour {
     
-    [SerializeField] Dialog dialog;
+    [SerializeField] Dialog[] dialogs;
     [SerializeField] SpriteRenderer popup;
+    int currentDialog;
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player"))
@@ -19,7 +20,10 @@ public class DialogActivator : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D other) {
         if (Input.GetKeyDown(KeyCode.E) && other.CompareTag("Player")) {
-            DialogManager.instance.TriggerDialog(dialog);
+            DialogManager.instance.TriggerDialog(dialogs[currentDialog]);
+
+            if (currentDialog < dialogs.Length-1)
+                currentDialog++;
         }
     }
 }
