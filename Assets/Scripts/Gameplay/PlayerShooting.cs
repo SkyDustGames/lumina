@@ -9,6 +9,9 @@ public class PlayerShooting : MonoBehaviour {
     private void Update() {
         transform.LookAt2D(Helpers.Mouse);
         if (Input.GetButtonDown("Fire1")) {
+            Helpers.Camera.Shake(.1f, .1f);
+            firePoint.SpawnParticle(0, false);
+
             Rigidbody2D bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bullet.AddForce(transform.right * bulletSpeed, ForceMode2D.Impulse);
 
