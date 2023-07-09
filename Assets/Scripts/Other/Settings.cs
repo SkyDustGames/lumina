@@ -45,6 +45,14 @@ public class Settings : MonoBehaviour {
             new int[] { resolution, graphicsQuality },
             new float[] { musicVolume, sfxVolume }    
         );
+
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += (o1, o2) => {
+            Change.Invoke(
+                new bool[] { postProcessing, fullScreen, cameraShake, particles },
+                new int[] { resolution, graphicsQuality },
+                new float[] { musicVolume, sfxVolume }    
+            );  
+        };
     }
 
     public void Save() {

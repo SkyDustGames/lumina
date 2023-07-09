@@ -15,6 +15,6 @@ public class Rocket : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        rb.velocity = transform.right * speed * Time.fixedDeltaTime;
+        rb.velocity = transform.right * speed * Time.fixedDeltaTime * Mathf.Min(Vector3.Distance(transform.position, Helpers.Mouse) * 0.1f, 1.5f);
     }
 }

@@ -27,6 +27,7 @@ public class Drop : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player")) {
+            transform.SpawnParticle(0, false);
             other.gameObject.GetComponent<PlayerInventory>().AddItem(item);
             Destroy(gameObject);
         }
