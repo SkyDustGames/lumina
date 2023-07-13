@@ -43,12 +43,12 @@ public class SettingsUI : MonoBehaviour {
 
     public void SetResolution(int index) {
         Settings.instance.resolution = index;
-        Settings.instance.Save();
+        SaveAndPlaySound();
     }
 
     public void SetGraphicsQuality(int index) {
         Settings.instance.graphicsQuality = index;
-        Settings.instance.Save();
+        SaveAndPlaySound();
     }
 
     public void SetMusic(float volume) {
@@ -58,26 +58,31 @@ public class SettingsUI : MonoBehaviour {
 
     public void SetSFX(float volume) {
         Settings.instance.sfxVolume = volume;
-        Settings.instance.Save();
+        SaveAndPlaySound();
     }
 
     public void SetPostProcessing(bool value) {
         Settings.instance.postProcessing = value;
-        Settings.instance.Save();
+        SaveAndPlaySound();
     }
 
     public void SetFullScreen(bool value) {
         Settings.instance.fullScreen = value;
-        Settings.instance.Save();
+        SaveAndPlaySound();
     }
 
     public void SetCameraShake(bool value) {
         Settings.instance.cameraShake = value;
-        Settings.instance.Save();
+        SaveAndPlaySound();
     }
 
     public void SetParticles(bool value) {
         Settings.instance.particles = value;
+        SaveAndPlaySound();
+    }
+
+    void SaveAndPlaySound() {
         Settings.instance.Save();
+        AudioManager.instance.PlaySound("Interact");
     }
 }

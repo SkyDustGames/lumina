@@ -9,7 +9,7 @@ public class ParticleManager : MonoBehaviour {
         instance = this;
     }
 
-    public void SpawnParticle(Transform transform, int particleIndex, bool setColor) {
+    public void SpawnParticle(Transform transform, int particleIndex, bool setColor, bool shouldPlaySound) {
         ParticleSystem particle = Instantiate(particles[particleIndex], transform.position, transform.rotation);
 
         ParticleSystem.MainModule main = particle.main;
@@ -17,5 +17,10 @@ public class ParticleManager : MonoBehaviour {
             main.startColor = transform.GetComponent<SpriteRenderer>().color;
 
         Destroy(particle.gameObject, particle.main.startLifetime.constantMax);
+
+        if (shouldPlaySound) {
+            if (particleIndex == 0) AudioManager.instance.PlaySound("Hit");
+            else AudioManager.instance.PlaySound("Explosion");
+        }
     }
 }

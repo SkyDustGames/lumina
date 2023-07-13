@@ -11,9 +11,11 @@ public class MainMenu : MonoBehaviour {
 
         PlayerPrefs.SetInt("TimesPlayed", times + 1);
         Scenes.Load(name: n);
+        AudioManager.instance.PlaySound("Interact");
     }
 
     public void Quit() {
         Application.Quit();
+        AudioManager.instance.PlaySound("Interact");
     }
 }

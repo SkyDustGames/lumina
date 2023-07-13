@@ -27,7 +27,8 @@ public class Drop : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player")) {
-            transform.SpawnParticle(0, false);
+            transform.SpawnParticle(0, playSound: false);
+            AudioManager.instance.PlaySound("Collect");
             other.gameObject.GetComponent<PlayerInventory>().AddItem(item);
             Destroy(gameObject);
         }

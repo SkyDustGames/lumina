@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour {
     public void PlaySound(string name) {
         Sound sound = sounds.Where(sound => sound.name == name).ToList()[0];
         if (sound != null) {
-            sound.source.pitch = Random.Range(0, 1f);
+            sound.source.pitch = Random.Range(1f, 2f);
             sound.source.volume = Settings.instance.sfxVolume * sound.volume;
             sound.source.Play();
         }

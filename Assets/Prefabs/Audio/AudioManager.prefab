@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1485098196516880024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3089077165771963423}
+  - component: {fileID: 7937626838721971688}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3089077165771963423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485098196516880024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7937626838721971688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485098196516880024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94d321f63c5a82d685e0291e337081b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Collect
+    clip: {fileID: 8300000, guid: 371fda1b2960bf9788d77a19431a318f, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: c90e27d07c67dc8418ecf2f29cdd2c29, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: Footstep
+    clip: {fileID: 8300000, guid: c21fbe625fca58780b8c66d2966d9184, type: 3}
+    volume: 0.25
+    source: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: d09be28018d867b28a31a7a7b75a2def, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: Interact
+    clip: {fileID: 8300000, guid: 7dc2201360cca4b9796b0708e229c560, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: ShipDone
+    clip: {fileID: 8300000, guid: 6a268162f90bffbe9b56c3ee237531c0, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: ShipNotDone
+    clip: {fileID: 8300000, guid: 4490bf9eca7269ffa808e82fe63f2b46, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: Shoot
+    clip: {fileID: 8300000, guid: d7d894380120ccc12b3b786b461251dd, type: 3}
+    volume: 0.5
+    source: {fileID: 0}

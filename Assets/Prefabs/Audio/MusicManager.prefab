@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4195810924400049336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5926066343803391593}
+  - component: {fileID: 223847860771552773}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5926066343803391593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4195810924400049336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &223847860771552773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4195810924400049336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25d28ed61464b4b88424029bc37726a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music:
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: d75722a576e7b8cbd87900709c4a1b7c, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: WorldSelection
+    clip: {fileID: 8300000, guid: ede9fa6cf48d0066f98a869ba1a92c20, type: 3}
+    volume: 0.25
+    source: {fileID: 0}
+  - name: Bossfight
+    clip: {fileID: 8300000, guid: cedce9f0a364169859d3f83e5d2f0323, type: 3}
+    volume: 0.25
+    source: {fileID: 0}
+  - name: World
+    clip: {fileID: 8300000, guid: 004cd66060ce69a31ac14b0243664124, type: 3}
+    volume: 0.25
+    source: {fileID: 0}
+  - name: PlanetAmbience
+    clip: {fileID: 8300000, guid: fd8a17e80378ee96fbbc35a605dbe802, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: WorldSelectionAmbience
+    clip: {fileID: 8300000, guid: 597623558d187db18bad9dd9ee3630e6, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  playing: 
+  ambience: 

@@ -41,8 +41,8 @@ public static class Helpers {
         return value;
     }
 
-    public static void SpawnParticle(this Transform transform, int particle, bool setColor = true) {
+    public static void SpawnParticle(this Transform transform, int particle, bool setColor = true, bool playSound = true) {
         if (Settings.instance.particles)
-            ParticleManager.instance.SpawnParticle(transform, particle, setColor);
+            ParticleManager.instance.SpawnParticle(transform, particle, setColor, playSound);
     }
 }

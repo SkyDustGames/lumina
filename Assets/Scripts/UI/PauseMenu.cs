@@ -25,9 +25,11 @@ public class PauseMenu : MonoBehaviour {
         
         group.DOFade(gameIsPaused ? 1f : 0f, .5f).SetUpdate(true);
         background.DOLocalMoveX(200 * (gameIsPaused? 1 : -1) - 400, .5f).SetUpdate(true);
+        AudioManager.instance.PlaySound("Interact");
     }
 
     public void Quit() {
         Scenes.Load(name: "Menus");
+        AudioManager.instance.PlaySound("Interact");
     }
 }

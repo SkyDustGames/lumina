@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour {
 
     public void Activate(Transform t) {
         StartCoroutine(IActivate(t));
+        AudioManager.instance.PlaySound("Interact");
     }
 
     private IEnumerator IActivate(Transform t) {

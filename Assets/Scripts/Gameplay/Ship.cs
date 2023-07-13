@@ -36,9 +36,12 @@ public class Ship : MonoBehaviour {
 
             damage.sprite = damageLevels[amount];
             Helpers.Camera.Shake(.1f, .1f);
-            transform.SpawnParticle(1, false);
+            transform.SpawnParticle(1, playSound: false);
 
-            if (amount >= neededItems.Length) LevelManager.instance.GoToNextLevel();
+            if (amount >= neededItems.Length) {
+                LevelManager.instance.GoToNextLevel();
+                AudioManager.instance.PlaySound("ShipDone");
+            } else AudioManager.instance.PlaySound("ShipNotDone");
         }
     }
 

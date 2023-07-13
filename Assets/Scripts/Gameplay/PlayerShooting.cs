@@ -25,7 +25,8 @@ public class PlayerShooting : MonoBehaviour {
                 core.Kill();
 
             Helpers.Camera.Shake(.1f, .1f);
-            firePoint.SpawnParticle(0, false);
+            firePoint.SpawnParticle(0, false, playSound: false);
+            AudioManager.instance.PlaySound("Shoot");
 
             Rigidbody2D bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bullet.AddForce(transform.right * bulletSpeed, ForceMode2D.Impulse);
