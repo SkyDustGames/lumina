@@ -4,8 +4,9 @@ public abstract class Enemy : MonoBehaviour {
     
     [Header("Enemy.cs")]
     [SerializeField] float health;
+    [SerializeField] float damage = 1f;
     [SerializeField] float speed;
-    Transform player;
+    protected Transform player;
     protected bool enemyActive = true;
 
     public virtual void Awake() {
@@ -33,11 +34,11 @@ public abstract class Enemy : MonoBehaviour {
             transform.SpawnParticle(health <= 0 ? 1 : 0);
         }
 
-        if (other.gameObject.CompareTag("Player") && enemyActive) {
+        if (other.gameObject.CompareTag("Player") && enemyActive && damage > 0) {
             OnDeath();
 
             PlayerHealth health = other.gameObject.GetComponent<PlayerHealth>();
-            health.Damage();
+            health.Damage(damage);
 
             Helpers.Camera.Shake(.1f, .1f);
             transform.SpawnParticle(1);
@@ -45,6 +46,6 @@ public abstract class Enemy : MonoBehaviour {
         }
     }
 
-    public abstract void OnDeath();
+    public virtual void OnDeath() {}
     public virtual void OnHit() {}
 }

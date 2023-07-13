@@ -6,7 +6,10 @@ public class Planet : MonoBehaviour {
     [SerializeField] float speed;
 
     private void Awake() {
-        if (!unlocked) unlocked = PlayerPrefs.GetInt(gameObject.name + "Unlocked") == 1;
+        if (!unlocked) {
+            unlocked = PlayerPrefs.GetInt(gameObject.name + "Unlocked") == 1;
+            if (!unlocked) GetComponent<SpriteRenderer>().color = new Color(.5f, .5f, .5f, .5f);
+        }
     }
 
     private void Update() {

@@ -10,6 +10,12 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void GoToNextLevel() {
+        if (nextLevel == "Menus") {
+            PlayerPrefs.DeleteAll();
+            Scenes.Load(index: 0);
+            return;
+        }
+
         PlayerPrefs.SetInt(nextLevel + "Unlocked", 1);
         PlayerPrefs.SetString("NextLevel", nextLevel);
         Scenes.Load(name: "WorldSelectionScreen");

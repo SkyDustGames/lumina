@@ -1168,7 +1168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af30a7807de9da4d80a8e7097995e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 125
+  range: 5
 --- !u!212 &744994117
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7144,11 +7145,11 @@ Transform:
   - {fileID: 1327045244}
   - {fileID: 465042821}
   - {fileID: 443258009}
+  - {fileID: 149829869}
   - {fileID: 723430404}
   - {fileID: 1389291485}
   - {fileID: 325212161}
   - {fileID: 1967686048}
-  - {fileID: 149829869}
   - {fileID: 1180855814}
   - {fileID: 1014935869}
   m_Father: {fileID: 823890511}
@@ -7785,7 +7786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7669859300891040854, guid: ebdd3042cf3342682ac90c441542dc56, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -200
+      value: -200.00003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

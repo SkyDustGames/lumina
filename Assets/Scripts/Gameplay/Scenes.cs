@@ -40,4 +40,11 @@ public class Scenes : MonoBehaviour {
     public static void Reload() {
         Load(index: SceneManager.GetActiveScene().buildIndex);
     }
+
+    public static void LoadInstant(string name = null, int index = -1) {
+        if (name == null)
+            SceneManager.LoadScene(index);
+        else
+            SceneManager.LoadScene(name);
+    }
 }

@@ -39,8 +39,8 @@ public class PlayerInventory : MonoBehaviour {
         Add(new InventoryItem(item));
     }
 
-    private void UpdateItem(InventoryItem item) {
-        item.value++;
+    public void UpdateItem(InventoryItem item, int amount = 1) {
+        item.value += amount;
         item.valueText.text = "" + item.value;
     }
 

@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using DG.Tweening;
 
 public class Mimic : Enemy {
 
@@ -12,6 +14,8 @@ public class Mimic : Enemy {
     public override void Awake() {
         base.Awake();
         enemyActive = false;
+
+        StartCoroutine(IAnimate());
     }
 
     public override void OnDeath() {
@@ -39,5 +43,12 @@ public class Mimic : Enemy {
         enemyActive = true;
         GetComponent<SpriteRenderer>().sprite = gemActive;
         GetComponent<Animator>().enabled = true;
+    }
+
+    private IEnumerator IAnimate() {
+        while (!enemyActive) {
+            transform.DOShakePosition(Random.Range(1f, 2f), .1f, fadeOut: false);
+            yield return new WaitForSeconds(Random.Range(5f, 10f));
+        }
     }
 }
