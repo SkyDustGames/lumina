@@ -35,7 +35,7 @@ public abstract class Enemy : MonoBehaviour {
         }
 
         if (other.gameObject.CompareTag("Player") && enemyActive && damage > 0) {
-            OnDeath();
+            OnKill();
 
             PlayerHealth health = other.gameObject.GetComponent<PlayerHealth>();
             health.Damage(damage);
@@ -47,5 +47,6 @@ public abstract class Enemy : MonoBehaviour {
     }
 
     public virtual void OnDeath() {}
+    public virtual void OnKill() {}
     public virtual void OnHit() {}
 }

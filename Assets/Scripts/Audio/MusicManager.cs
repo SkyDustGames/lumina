@@ -30,14 +30,18 @@ public class MusicManager : MonoBehaviour {
         });
     }
 
-    public void Switch(string newSong) {
+    public void Switch(string newSong, bool pause = false) {
         if (!string.IsNullOrEmpty(playing)) {
             Sound current = music.Where(sound => sound.name == playing).ToList()[0];
-            current.source.Stop();
+            if (pause) current.source.Pause();
+            else current.source.Stop();
         }
 
+        if (string.IsNullOrEmpty(newSong)) return;
+
         Sound song = music.Where(sound => sound.name == newSong).ToList()[0];
-        song.source.Play();
+        if (pause) song.source.UnPause();
+        else song.source.Play();
 
         playing = newSong;
     }
@@ -49,7 +53,7 @@ public class MusicManager : MonoBehaviour {
         }
 
         if (newAmbience == "none") {
-            ambience = "none";
+            ambience = null;
             return;
         }
 

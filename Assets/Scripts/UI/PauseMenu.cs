@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour {
 
     [SerializeField] Transform background;
     CanvasGroup group;
+    string lastPlayed;
 
     private void Awake() {
         group = GetComponent<CanvasGroup>();
@@ -26,6 +27,11 @@ public class PauseMenu : MonoBehaviour {
         group.DOFade(gameIsPaused ? 1f : 0f, .5f).SetUpdate(true);
         background.DOLocalMoveX(200 * (gameIsPaused? 1 : -1) - 400, .5f).SetUpdate(true);
         AudioManager.instance.PlaySound("Interact");
+
+        if (gameIsPaused) {
+            lastPlayed = MusicManager.instance.playing;
+            MusicManager.instance.Switch(null, true);
+        } else MusicManager.instance.Switch(lastPlayed, true);
     }
 
     public void Quit() {

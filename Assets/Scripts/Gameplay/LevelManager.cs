@@ -16,6 +16,11 @@ public class LevelManager : MonoBehaviour {
             return;
         }
 
+        if (string.IsNullOrEmpty(nextLevel)) {
+            Scenes.Load(name: "ToBeContinued");
+            return;
+        }
+
         PlayerPrefs.SetInt(nextLevel + "Unlocked", 1);
         PlayerPrefs.SetString("NextLevel", nextLevel);
         Scenes.Load(name: "WorldSelectionScreen");

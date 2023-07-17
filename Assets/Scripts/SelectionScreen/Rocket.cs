@@ -3,7 +3,7 @@ using UnityEngine;
 public class Rocket : MonoBehaviour {
     
     [SerializeField] float speed;
-    [SerializeField] float range;
+    [SerializeField] Vector2 range;
     float multiplier;
     Rigidbody2D rb;
 
@@ -13,7 +13,10 @@ public class Rocket : MonoBehaviour {
         Transform planet = GameObject.Find(PlayerPrefs.GetString("NextLevel", "Lumina")).transform;
         GetComponentInChildren<PointingArrow>().target = planet;
 
-        transform.position = new Vector3(Random.Range(planet.position.x - range, planet.position.x + range), Random.Range(planet.position.y - range, planet.position.y + range));
+        transform.position = new Vector3(
+            planet.position.x + Random.Range(range.x, range.y),
+            planet.position.y + Random.Range(range.x, range.y)
+        );
     }
 
     private void Update() {
