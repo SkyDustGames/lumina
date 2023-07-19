@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
-using System.Collections.Generic;
+using System.Collections;
+using TMPro;
 
 public class Ship : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class Ship : MonoBehaviour {
     [SerializeField] Sprite[] damageLevels;
     [SerializeField] SpriteRenderer damage;
     [SerializeField] SpriteRenderer popup;
+    [SerializeField] TextMeshPro required;
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player"))
@@ -41,8 +43,25 @@ public class Ship : MonoBehaviour {
             if (amount >= neededItems.Length) {
                 LevelManager.instance.GoToNextLevel();
                 AudioManager.instance.PlaySound("ShipDone");
-            } else AudioManager.instance.PlaySound("ShipNotDone");
+            } else {
+                StartCoroutine(ShowRequiredItems());
+                AudioManager.instance.PlaySound("ShipNotDone");
+            }
         }
+    }
+
+    private IEnumerator ShowRequiredItems() {
+        string str = "You need ";
+        foreach (PlayerInventory.InventoryItem item in neededItems) {
+            if (item.value <= 0) continue;
+            str += item.value + " " + item.item.name + ", ";
+        }
+        str = str.Substring(0, str.Length - 2) + ".";
+        required.text = str;
+
+        required.DOFade(1f, .5f);
+        yield return new WaitForSeconds(3f);
+        required.DOFade(0f, .5f);
     }
 
     private void OnTriggerExit2D(Collider2D other) {

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a28ab14154ecc9378d9800300fc8944, type: 3}
+  m_Name: NPCVerdantia
+  m_EditorClassIdentifier: 
+  elements:
+  - sprite: {fileID: 973307966, guid: 02ba55e893a850eee9eb615ad1cab171, type: 3}
+    text: My radar detected something...
+  - sprite: {fileID: 807422377, guid: 02ba55e893a850eee9eb615ad1cab171, type: 3}
+    text: What is it? Those green things?
+  - sprite: {fileID: 973307966, guid: 02ba55e893a850eee9eb615ad1cab171, type: 3}
+    text: Yeah. They seem to be descendents of Aether.
+  - sprite: {fileID: 807422377, guid: 02ba55e893a850eee9eb615ad1cab171, type: 3}
+    text: What?
+  - sprite: {fileID: 973307966, guid: 02ba55e893a850eee9eb615ad1cab171, type: 3}
+    text: Aether. It took over this system. By force.
+  - sprite: {fileID: 807422377, guid: 02ba55e893a850eee9eb615ad1cab171, type: 3}
+    text: Can't we just go back?

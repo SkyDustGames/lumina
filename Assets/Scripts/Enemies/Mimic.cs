@@ -48,7 +48,7 @@ public class Mimic : Enemy {
     private IEnumerator IAnimate() {
         while (!enemyActive) {
             transform.DOShakePosition(Random.Range(1f, 2f), .1f, fadeOut: false);
-            yield return new WaitForSeconds(Random.Range(5f, 10f));
+            yield return Helpers.Wait(Random.Range(5f, 10f));
         }
     }
 }

@@ -13,7 +13,7 @@ public class MajorisSword : MonoBehaviour {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 
         if (other.gameObject.CompareTag("Block"))
-            return; // TODO:
+            other.transform.GetComponent<BreakableBlock>().Damage();
         else if (other.gameObject.CompareTag("Player"))
             other.transform.GetComponent<PlayerHealth>().Damage(4f);
     }

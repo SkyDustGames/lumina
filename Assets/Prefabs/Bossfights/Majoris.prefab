@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795933fe423161e0922388a3f58212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 5
   eyeSprite: {fileID: 4388166644000483482}
   sword: {fileID: 437768299865106826}
   time: 5
