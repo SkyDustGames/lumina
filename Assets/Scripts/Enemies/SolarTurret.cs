@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class SolarTurret : Enemy {
 
@@ -9,6 +10,7 @@ public class SolarTurret : Enemy {
     [SerializeField] Transform firePoint;
     [SerializeField] Transform rotationPoint;
     [SerializeField] float timer;
+    [SerializeField] SpriteRenderer top;
     float time;
     bool canShoot;
 
@@ -30,6 +32,9 @@ public class SolarTurret : Enemy {
             if (time >= timer) {
                 Shoot();
                 time = 0;
+
+                top.color = Color.yellow;
+                top.DOColor(Color.red, timer);
             }
         }
 
@@ -42,6 +47,8 @@ public class SolarTurret : Enemy {
 
         Rigidbody2D rb = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         rb.AddForce(direction * bulletSpeed, ForceMode2D.Impulse);
+
+        transform.SpawnParticle(0, false);
 
         Destroy(rb.gameObject, 2.5f);
     }

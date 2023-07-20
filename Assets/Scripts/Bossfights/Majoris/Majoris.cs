@@ -9,11 +9,16 @@ public class Majoris : Boss {
     [SerializeField] float time;
     [SerializeField] float swordSpeed;
     [SerializeField] Sprite circle;
+    [SerializeField] GameObject destructibleBlock;
+    [SerializeField] Transform blocks;
+    [SerializeField] Vector2 min, max;
+    [SerializeField] int blockCount;
     [HideInInspector] public int state;
     SpriteRenderer spriteRenderer;
     Collider2D collider2d;
     float timer;
     bool active;
+    int hitCount;
 
     private void Start() {
         collider2d = GetComponent<Collider2D>();
@@ -21,6 +26,7 @@ public class Majoris : Boss {
     }
 
     public override void StartFight() {
+        StartCoroutine(ISpawnBlocks());
         StartCoroutine(IStartFight());
     }
 
@@ -56,6 +62,7 @@ public class Majoris : Boss {
             transform.DOLocalMove(Vector3.zero, 1f);
             sword.transform.DOLocalMove(new(3, 0, 0), 1f);
             state = -1;
+            StartCoroutine(ISpawnBlocks());
             break;
         }
 
@@ -67,6 +74,13 @@ public class Majoris : Boss {
     }
 
     private IEnumerator IOnHit() {
+        hitCount++;
+        if (hitCount >= 3) {
+            hitCount = 0;
+            StateChange();
+            state++;
+        }
+
         Sprite sprite = spriteRenderer.sprite;
         int sortingOrder = spriteRenderer.sortingOrder;
 
@@ -74,9 +88,6 @@ public class Majoris : Boss {
         spriteRenderer.sortingOrder = 3;
 
         yield return Helpers.Wait(.1f);
-
-        StateChange();
-        state++;
 
         spriteRenderer.sprite = sprite;
         spriteRenderer.sortingOrder = sortingOrder;
@@ -86,5 +97,18 @@ public class Majoris : Boss {
         eyeSprite.DOColor(Color.black, 1.5f);
         yield return Helpers.Wait(2);
         active = true;
+    }
+
+    private IEnumerator ISpawnBlocks() {
+        int j = blockCount - blocks.childCount;
+        for (int i = 0; i < j; i++) {
+            Instantiate(destructibleBlock, new(Random.Range(min.x, max.x), Random.Range(min.y, max.y)), Quaternion.Euler(0, 0, Random.Range(0, 360f)), blocks);
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(new Vector2(min.x, min.y), new Vector2(max.x, max.y));
     }
 }
