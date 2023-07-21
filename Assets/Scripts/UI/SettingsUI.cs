@@ -41,6 +41,10 @@ public class SettingsUI : MonoBehaviour {
         });
     }
 
+    private void Start() {
+        SaveAndPlaySound();
+    }
+
     public void SetResolution(int index) {
         Settings.instance.resolution = index;
         SaveAndPlaySound();

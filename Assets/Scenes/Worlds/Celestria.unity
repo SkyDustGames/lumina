@@ -121632,11 +121632,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1224752093250758009, guid: 3792a7c7ed27d1f3fb0d7eeaa2f1fd19, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.14
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 1224752093250758009, guid: 3792a7c7ed27d1f3fb0d7eeaa2f1fd19, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.84
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1224752093250758009, guid: 3792a7c7ed27d1f3fb0d7eeaa2f1fd19, type: 3}
       propertyPath: m_LocalPosition.z
@@ -121670,6 +121670,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6436149780564094364, guid: 3792a7c7ed27d1f3fb0d7eeaa2f1fd19, type: 3}
+      propertyPath: dialogs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436149780564094364, guid: 3792a7c7ed27d1f3fb0d7eeaa2f1fd19, type: 3}
+      propertyPath: dialogs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6bc34a0badeb00047b2aa4472148c94f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -121964,7 +121972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1838349727854864681, guid: f018a667b74b59d4ca37e9626352a1c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1838349727854864681, guid: f018a667b74b59d4ca37e9626352a1c2, type: 3}
       propertyPath: m_LocalPosition.y

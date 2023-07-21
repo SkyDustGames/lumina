@@ -16,6 +16,8 @@ public class SolarTurret : Enemy {
 
     public override void Awake() {
         base.Awake();
+        top.color = Color.yellow;
+        top.DOColor(Color.red, timer);
     }
 
     public override void Update() {
