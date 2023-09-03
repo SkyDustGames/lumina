@@ -33,6 +33,10 @@ public class DialogManager : MonoBehaviour {
 
     public void TriggerDialog(Dialog dialog) {
         this.dialog = dialog;
+        if (dialog == null) {
+            panel.DOFade(0f, .5f);
+            return;
+        }
 
         index = 0;
         text.text = dialog.elements[index].text;
