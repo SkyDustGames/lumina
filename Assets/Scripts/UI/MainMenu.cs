@@ -3,13 +3,13 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour {
 
     public void Play() {
-        int times = PlayerPrefs.GetInt("TimesPlayed", 0);
+        int times = SaveManager.save.timesPlayed;
 
         string n = "WorldSelectionScreen";
         if (times == 0)
             n = "Lumina";
 
-        PlayerPrefs.SetInt("TimesPlayed", times + 1);
+        SaveManager.save.timesPlayed++;
         Scenes.Load(name: n);
         AudioManager.instance.PlaySound("Interact");
     }

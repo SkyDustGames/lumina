@@ -24,18 +24,18 @@ public class Settings : MonoBehaviour {
         }
 
         // Booleans
-        postProcessing = PlayerPrefs.GetInt("SettingsPostProcessing", 1) == 1;
-        fullScreen = PlayerPrefs.GetInt("SettingsFullScreen", 1) == 1;
-        cameraShake = PlayerPrefs.GetInt("SettingsCameraShake", 1) == 1;
-        particles = PlayerPrefs.GetInt("SettingsParticles", 1) == 1;
+        postProcessing = SaveManager.save.postProcessing;
+        fullScreen = SaveManager.save.fullscreen;
+        cameraShake = SaveManager.save.cameraShake;
+        particles = SaveManager.save.particles;
 
         // Indexes
-        resolution = PlayerPrefs.GetInt("SettingsResolution", Array.IndexOf(Screen.resolutions, Screen.currentResolution));
-        graphicsQuality = PlayerPrefs.GetInt("SettingsGraphicsQuality", QualitySettings.GetQualityLevel());
+        resolution = SaveManager.save.resolutionIndex;
+        graphicsQuality = SaveManager.save.graphicsQuality;
 
         // Floats
-        musicVolume = PlayerPrefs.GetFloat("SettingsMusicVolume", 1);
-        sfxVolume = PlayerPrefs.GetFloat("SettingsSFXVolume", 1);
+        musicVolume = SaveManager.save.musicVolume;
+        sfxVolume = SaveManager.save.sfxVolume;
 
         instance = this;
         DontDestroyOnLoad(instance);
@@ -57,18 +57,18 @@ public class Settings : MonoBehaviour {
 
     public void Save() {
         // Booleans
-        PlayerPrefs.SetInt("SettingsPostProcessing", postProcessing? 1 : 0);
-        PlayerPrefs.SetInt("SettingsFullScreen", fullScreen? 1 : 0);
-        PlayerPrefs.SetInt("SettingsCameraShake", cameraShake? 1 : 0);
-        PlayerPrefs.SetInt("SettingsParticles", particles? 1 : 0);
+        SaveManager.save.postProcessing = postProcessing;
+        SaveManager.save.fullscreen = fullScreen;
+        SaveManager.save.cameraShake = cameraShake;
+        SaveManager.save.particles = particles;
 
         // Indexes
-        PlayerPrefs.SetInt("SettingsResolution", resolution);
-        PlayerPrefs.SetInt("SettingsGraphicsQuality", graphicsQuality);
+        SaveManager.save.resolutionIndex = resolution;
+        SaveManager.save.graphicsQuality = graphicsQuality;
 
         // Floats
-        PlayerPrefs.SetFloat("SettingsMusicVolume", musicVolume);
-        PlayerPrefs.SetFloat("SettingsSFXVolume", sfxVolume);
+        SaveManager.save.musicVolume = musicVolume;
+        SaveManager.save.sfxVolume = sfxVolume;
         
         Change.Invoke(
             new bool[] { postProcessing, fullScreen, cameraShake, particles },

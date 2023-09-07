@@ -11,7 +11,7 @@ public class Startup : MonoBehaviour {
     [SerializeField] Image image;
 
     private void Start() {
-        StartCoroutine(ILoadScene(PlayerPrefs.GetInt("TimesPlayed") == 0));
+        StartCoroutine(ILoadScene(SaveManager.save.timesPlayed == 0));
     }
 
     private IEnumerator ILoadScene(bool startWait) {

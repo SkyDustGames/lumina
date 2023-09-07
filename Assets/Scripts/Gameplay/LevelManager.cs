@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour {
 
     public void GoToNextLevel() {
         if (nextLevel == "Menus") {
-            PlayerPrefs.DeleteAll();
+            SaveManager.save = new();
             Scenes.Load(index: 0);
             return;
         }
@@ -21,8 +21,9 @@ public class LevelManager : MonoBehaviour {
             return;
         }
 
-        PlayerPrefs.SetInt(nextLevel + "Unlocked", 1);
-        PlayerPrefs.SetString("NextLevel", nextLevel);
+        if (!SaveManager.save.unlockedPlanets.Contains(nextLevel))
+            SaveManager.save.unlockedPlanets.Add(nextLevel);
+        SaveManager.save.nextPlanet = nextLevel;
         Scenes.Load(name: "WorldSelectionScreen");
     }
 }
