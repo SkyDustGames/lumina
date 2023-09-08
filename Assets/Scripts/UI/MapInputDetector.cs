@@ -13,7 +13,8 @@ public class MapInputDetector : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.M)) {
             bool active = bigMap.activeInHierarchy;
             bigMap.SetActive(!active);
-            player.inputEnabled = active;
+            if (player != null)
+                player.inputEnabled = active;
         }
     }
 }

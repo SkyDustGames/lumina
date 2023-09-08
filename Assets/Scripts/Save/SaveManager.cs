@@ -13,7 +13,7 @@ public static class SaveManager {
         Application.quitting += Save;
     }
 
-    private static void Load() {
+    public static void Load() {
         if (!File.Exists(path)) {
             save = new Save();
             return;
@@ -25,7 +25,7 @@ public static class SaveManager {
         stream.Close();
     }
 
-    private static void Save() {
+    public static void Save() {
         BinaryFormatter formatter = new();
         FileStream stream = new(path, FileMode.Create);
         formatter.Serialize(stream, save);

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 
-[System.Serializable]
+[Serializable]
 public class Save {
     
     public List<string> unlockedPlanets = new() { "Lumina" };
